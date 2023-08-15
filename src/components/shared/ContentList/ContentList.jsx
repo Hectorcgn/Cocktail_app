@@ -26,11 +26,11 @@ export const ContentList = () => {
   return (
     <>
       <AutoGrid>
-        {ingredientsList.map((item, i) => (
+        {ingredientsList.map((ingredient) => (
           <ContentTile
-            key={i}
-            category={item}
-            discription={"Lorem Ipsum Bla bla bla"}
+            key={ingredient}
+            linkName={ingredient.replaceAll(" ", "+").toLowerCase()}
+            name={ingredient}
           />
         ))}
       </AutoGrid>

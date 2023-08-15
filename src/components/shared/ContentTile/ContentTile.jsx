@@ -1,6 +1,7 @@
 import style from "./ContentTile.module.scss";
+import { Link } from "react-router-dom";
 
-export const ContentTile = ({ category, discription }) => {
+export const ContentTile = ({ name, linkName }) => {
   function getRandomColor() {
     const letters = "0123456789ABCDEF";
     let color = "#";
@@ -14,12 +15,13 @@ export const ContentTile = ({ category, discription }) => {
 
   const randomColor = getRandomColor();
   return (
-    <article
-      style={{ backgroundColor: randomColor }}
-      className={style.container}
-    >
-      <h1>{category}</h1>
-      <p>{discription}</p>
-    </article>
+    <Link to={`/drinklist/${linkName}`}>
+      <article
+        style={{ backgroundColor: randomColor }}
+        className={style.container}
+      >
+        <h1>{name}</h1>
+      </article>
+    </Link>
   );
 };
