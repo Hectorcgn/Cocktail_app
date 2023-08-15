@@ -1,0 +1,18 @@
+nav{
+  padding: 21px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 52px;
+
+  h2{
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    letter-spacing: 4px;
+  }
+
+  p{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+  }
+}
