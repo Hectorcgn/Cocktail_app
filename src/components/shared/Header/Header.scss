@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Playfair+Display&display=swap');
+
+Header{
+  background-color: #262B46;
+  color: white;
+  padding-bottom: 43px;
+}
+
+.header-main{
+  padding-inline: 50px;
+  margin-top: 52px;
+}
+
+.header-main-title{
+  font-size: 52px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+}
+
+.header-main-p{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  margin-top: 10px;
+  line-height: 19px;
+}
+
+.header-icon{
+  text-align: center;
+}
