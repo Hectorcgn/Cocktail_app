@@ -1,6 +1,6 @@
-import { AutoGrid } from "../../shared/AutoGrid/AutoGrid.jsx";
+import { AutoGrid } from "../AutoGrid/AutoGrid.jsx";
 import { useEffect, useState } from "react";
-import { ContentTile } from "../../shared/ContentTile/ContentTile.jsx";
+import { ContentTile } from "../ContentTile/ContentTile.jsx";
 
 export const ContentList = () => {
   const [ingredientsList, setIngredientsList] = useState([]);
