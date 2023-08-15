@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { detailDrinkApi } from '../../../utilities/detailDrinkApi'
 import './DrinkDetail.scss'
+import { useParams } from 'react-router-dom'
 
 function DrinkDetail() {
 
   const [drink, setDrink] = useState({})
-  
+ const drinkId = useParams().id 
   useEffect(() => {
-    fetch(`${detailDrinkApi}178309`)
+    fetch(`${detailDrinkApi}${drinkId}`)
       .then(res => res.json())
       .then(data => setDrink(data.drinks[0]))
   },[])

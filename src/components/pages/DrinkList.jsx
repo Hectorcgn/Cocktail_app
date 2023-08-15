@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './DrinkList.scss';
-import DrinkItem from '../DrinkItem/DrinkItem';
+import DrinkItem from '../shared/DrinkItem/DrinkItem';
+import { AutoGrid } from '../shared/AutoGrid/AutoGrid';
 
 
 function DrinkList() {
@@ -29,12 +30,16 @@ function DrinkList() {
     }
     return (
         <ul className='drinklist'>
+            <AutoGrid>
+
             {drinklist.map((drinkItem) =>(
                 <DrinkItem
                 key={drinkItem.idDrink}
+                id={drinkItem.idDrink}
                 name={drinkItem.strDrink}
                 img={drinkItem.strDrinkThumb}/>
-            ))}
+                ))}
+                </AutoGrid>
         </ul>
     )
 }

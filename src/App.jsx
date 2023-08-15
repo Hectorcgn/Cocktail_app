@@ -3,9 +3,10 @@
 import { Route, Routes } from 'react-router-dom'
 import './App.scss'
 import Footer from './components/shared/Footer/Footer'
-import Main from './components/pages/Main/Main'
-
+import Home from './components/pages/Home'
 import Header from './components/shared/Header/Header'
+import DrinkList from './components/pages/DrinkList'
+import DrinkDetail from './components/shared/DrinkDetail/DrinkDetail'
 
 function App() {
 
@@ -13,9 +14,11 @@ function App() {
     <>
     <Header/>
     <Routes>
-      <Route path='/' element={<Main/>}/>
+      <Route path='/' element={<Home/>}/>
+      <Route path='/drinklist' element={<DrinkList/>}/>
+      <Route path='/drinklist/:id' element={<DrinkDetail/>}/>
     </Routes>
-     <Footer/>
+    <Footer/>
     </>
   )
 }
