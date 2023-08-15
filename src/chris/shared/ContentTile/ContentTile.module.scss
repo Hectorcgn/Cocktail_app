@@ -1,0 +1,11 @@
+.container{
+  //background-color: lightblue;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  padding: 5rem 2rem;
+
+  & h1 {
+    font-size: 2.5rem;
+  }
+}
