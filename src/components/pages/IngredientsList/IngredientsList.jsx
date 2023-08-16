@@ -1,17 +1,16 @@
 import { useContext, useEffect, useState } from "react";
 import { AutoGrid } from "../../shared/AutoGrid/AutoGrid.jsx";
 import { IngredientTile } from "../../shared/IngredientTile/IngredientTile.jsx";
-import { getIngredientsList } from "../../../functions/fetch/ingredientsFetch.jsx";
 import { IngredientsContext } from "../../../contexts/IngredientsContext.jsx";
+import { getIngredientsList } from "../../../functions/fetch/ingredientsFetch.jsx";
 
-function Home() {
+function IngredientsList() {
   const [fetchOutcome, setFetchOutcome] = useState(false);
 
-  const { setIngredientsList, displayIngredients } =
-    useContext(IngredientsContext);
+  const { setIngredients, displayIngredients } = useContext(IngredientsContext);
 
   useEffect(() => {
-    getIngredientsList(setIngredientsList, setFetchOutcome);
+    getIngredientsList(setIngredients, setFetchOutcome);
   }, []);
 
   return (
@@ -29,4 +28,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default IngredientsList;

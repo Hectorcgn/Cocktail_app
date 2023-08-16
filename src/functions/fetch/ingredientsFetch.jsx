@@ -1,7 +1,4 @@
-export const getIngredientsList = async (
-  setIngredientsList,
-  setFetchOutcome,
-) => {
+export const getIngredientsList = async (setIngredients, setFetchOutcome) => {
   try {
     const res = await fetch(
       "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list",
@@ -12,7 +9,7 @@ export const getIngredientsList = async (
       );
     }
     const ingData = await res.json();
-    setIngredientsList(
+    setIngredients(
       Object.values(ingData.drinks).map((ing) => ing.strIngredient1),
       setFetchOutcome(true),
     );

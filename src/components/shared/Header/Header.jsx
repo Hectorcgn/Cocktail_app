@@ -1,4 +1,3 @@
-
 import React, { useContext, useEffect, useState } from "react";
 import Navbar from "../Navbar/Navbar";
 import Search from "../Search/Search";
@@ -9,7 +8,7 @@ import { IngredientsContext } from "../../../contexts/IngredientsContext.jsx";
 import { useLocation } from "react-router-dom";
 
 function Header() {
-  const { ingredientsList, setDisplayIngredients, displayIngredients } =
+  const { ingredients, setDisplayIngredients, displayIngredients } =
     useContext(IngredientsContext);
 
   const [inputSearch, setInputSearch] = useState("");
@@ -20,18 +19,16 @@ function Header() {
       setDisplayIngredients([]);
     } else {
       setDisplayIngredients(
-        ingredientsList.filter((ingredient) =>
+        ingredients.filter((ingredient) =>
           ingredient.toLowerCase().includes(inputSearch.toLowerCase().trim()),
         ),
       );
     }
   }, [inputSearch]);
 
-  const location2 = useLocation();
-
+  // const location2 = useLocation();
 
   const location = useLocation().pathname;
-
 
   return (
     <header>
@@ -42,24 +39,21 @@ function Header() {
           HERZLICH WILLKOMMEN IN DER WELT DER COCKTAILS UND GETRÄNKE!
         </p>
       </div>
-
-
-      {location !== '/adddrink' && <div>
-    
-    
-      <Search
-        valueP={inputSearch}
-        onChangeP={(event) => setInputSearch(event.target.value)}
-      />
-      <div className="header-icon">
-        <FontAwesomeIcon
-          icon={faAnglesDown}
-          size="xl"
-          style={{ color: "#ffffff" }}
-        />
-      </div>}
-      
-
+      {location !== "/adddrink" && (
+        <div>
+          <Search
+            valueP={inputSearch}
+            onChangeP={(event) => setInputSearch(event.target.value)}
+          />
+          <div className="header-icon">
+            <FontAwesomeIcon
+              icon={faAnglesDown}
+              size="xl"
+              style={{ color: "#ffffff" }}
+            />
+          </div>
+        </div>
+      )}
     </header>
   );
 }
