@@ -4,14 +4,6 @@ import AddDrinkForm from '../../shared/AddDrinkForm/AddDrinkForm'
 
 function AddDrink() {
 
-  let myDrink;
-  if (localStorage.getItem('myDrink')) {
-    myDrink = JSON.parse(localStorage.getItem('myDrink'))
-  }else myDrink = {}
-
-  console.log(myDrink)
-
-
   const [input, setInput] = useState({});
 
   const [drinkName, setDrinkName] = useState('');
@@ -63,8 +55,24 @@ function AddDrink() {
 
   const handleOnSubmit = (event) => {
     event.preventDefault();
-    const newMyDrink = {...myDrink, input}
-    localStorage.setItem('myDrink' , JSON.stringify(newMyDrink));
+
+    let myDrink;
+    if (localStorage.getItem('myDrink')) {
+      myDrink = JSON.parse(localStorage.getItem('myDrink'))
+    }else  myDrink = []
+    
+    myDrink.push(input)
+    localStorage.setItem('myDrink' , JSON.stringify(myDrink));
+    setDrinkName('')
+    setDrinkCategory('')
+    setDrinkUrl('')
+    setDrinkInstructions('')
+    setDrinkIngredient1('')
+    setDrinkIngredient2('')
+    setDrinkIngredient3('')
+    setDrinkMeasure1('')
+    setDrinkMeasure2('')
+    setDrinkMeasure3('')
   }
 
   useEffect(() => {
@@ -86,7 +94,20 @@ function AddDrink() {
     <div className='add-drink'>
       <h1>Füge deine eigenen Getränke hinzu!</h1>
       <div>
-        <AddDrinkForm onHandleInput={HandleInput} onhandleOnSubmit={handleOnSubmit}/>
+        <AddDrinkForm
+          onHandleInput={HandleInput}
+          onhandleOnSubmit={handleOnSubmit}
+          drinkNameValue={drinkName}
+          drinkCategoryValue={drinkCategory}
+          drinkUrlValue={drinkUrl}
+          drinkInstructionsValue={drinkInstructions}
+          drinkIngredient1Value={drinkIngredient1}
+          drinkIngredient2Value={drinkIngredient2}
+          drinkIngredient3Value={drinkIngredient3}
+          drinkMeasure1Value={drinkMeasure1}
+          drinkMeasure2Value={drinkMeasure2}
+          drinkMeasure3Value={drinkMeasure3}
+        />
         <div></div>
       </div>
     </div>
