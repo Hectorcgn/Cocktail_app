@@ -1,3 +1,4 @@
+
 import React, { useContext, useEffect, useState } from "react";
 import Navbar from "../Navbar/Navbar";
 import Search from "../Search/Search";
@@ -26,7 +27,11 @@ function Header() {
     }
   }, [inputSearch]);
 
-  const location = useLocation();
+  const location2 = useLocation();
+
+
+  const location = useLocation().pathname;
+
 
   return (
     <header>
@@ -37,6 +42,11 @@ function Header() {
           HERZLICH WILLKOMMEN IN DER WELT DER COCKTAILS UND GETRÄNKE!
         </p>
       </div>
+
+
+      {location !== '/adddrink' && <div>
+    
+    
       <Search
         valueP={inputSearch}
         onChangeP={(event) => setInputSearch(event.target.value)}
@@ -47,7 +57,9 @@ function Header() {
           size="xl"
           style={{ color: "#ffffff" }}
         />
-      </div>
+      </div>}
+      
+
     </header>
   );
 }
