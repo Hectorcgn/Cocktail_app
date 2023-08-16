@@ -1,8 +1,9 @@
 import React from 'react'
+import './AddDrinkForm.scss'
 
 function AddDrinkForm(props) {
   return (
-    <form onSubmit={props.onhandleOnSubmit}>
+    <form onSubmit={props.onhandleOnSubmit} className='add-drink-form'>
       <input type="text" placeholder='Name' data-key='strDrink' onChange={props.onHandleInput} value={props.drinkNameValue} required/>
       <input type="text" placeholder='Kategorie' data-key="strCategory" onChange={props.onHandleInput} value={props.drinkCategoryValue}/>
       <input type="text" placeholder='Bild URL' data-key="strDrinkThumb" onChange={props.onHandleInput} value={props.drinkUrlValue} required/>

@@ -15,4 +15,24 @@ nav{
     font-family: 'Montserrat', sans-serif;
     font-size: 13px;
   }
+  a{
+    color: #fff;
+    text-decoration: none;
+  
+  }
+  
+}
+
+.list {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out;
+}
+
+.list.open {
+  max-height: 200px; /* oder eine andere maximale Höhe */
+  transition: max-height 0.5s ease-in;
+  li{
+    padding-top: 10px;
+  }
 }
