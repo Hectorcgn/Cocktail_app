@@ -1,0 +1,58 @@
+.add-drink-form{
+  display: flex;
+  flex-direction: column;
+  margin-top: 46px;
+  gap: 15px;
+  font-family: 'Montserrat', sans-serif;
+
+  input{
+    width: 100%;
+    line-height: 30px;
+    color: #262B46;
+    border: none;
+    padding-inline: 10px;
+
+    &:nth-of-type(1), &:nth-of-type(7){
+      background-color: #6FC3DF;
+    }
+
+    &:nth-of-type(2), &:nth-of-type(8){
+      background-color: #8D82C4;
+    }
+
+    &:nth-of-type(3), &:nth-of-type(9){
+      background-color: #EC8D81;
+    }
+
+    &:nth-of-type(4){
+      height: 112px;
+    }
+
+    &:nth-of-type(4), &:nth-of-type(10){
+      background-color: #E7B788;
+    }
+
+    &:nth-of-type(5){
+      background-color: #87C5A4;
+    }
+    &:nth-of-type(6){
+      background-color: #8EA9E8;
+    }
+  }
+
+  button{
+    line-height: 45px;
+    border-radius: 6px;
+    border: none;
+    color: white;
+    background-color: #6FC3DF;
+  }
+}
+
+@media screen and (width > 960px) {
+  .add-drink-form{
+    input{
+      min-width: 300px;
+    }
+  }
+}

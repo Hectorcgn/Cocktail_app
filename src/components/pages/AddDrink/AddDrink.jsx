@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import './AddDrink.scss'
 import AddDrinkForm from '../../shared/AddDrinkForm/AddDrinkForm'
+import imageRight from '../../../assets/image/image 10.png'
+import imageTop from '../../../assets/image/image 9.png'
+import imageBottom from '../../../assets/image/image 11.png'
 
 function AddDrink() {
 
@@ -91,24 +94,30 @@ function AddDrink() {
   }, [drinkName, drinkCategory, drinkUrl, drinkInstructions, drinkIngredient1, drinkIngredient2, drinkIngredient3, drinkMeasure1, drinkMeasure2, drinkMeasure3])
 
   return (
-    <div className='add-drink'>
+    <div className='add-drink-parent'>
       <h1>Füge deine eigenen Getränke hinzu!</h1>
-      <div>
-        <AddDrinkForm
-          onHandleInput={HandleInput}
-          onhandleOnSubmit={handleOnSubmit}
-          drinkNameValue={drinkName}
-          drinkCategoryValue={drinkCategory}
-          drinkUrlValue={drinkUrl}
-          drinkInstructionsValue={drinkInstructions}
-          drinkIngredient1Value={drinkIngredient1}
-          drinkIngredient2Value={drinkIngredient2}
-          drinkIngredient3Value={drinkIngredient3}
-          drinkMeasure1Value={drinkMeasure1}
-          drinkMeasure2Value={drinkMeasure2}
-          drinkMeasure3Value={drinkMeasure3}
-        />
-        <div></div>
+      <div className='add-drink'>
+        <div className='image-box'>
+          <img src={imageTop} />
+          <img src={imageRight} />
+          <img src={imageBottom} />
+        </div>
+        <div>
+          <AddDrinkForm
+            onHandleInput={HandleInput}
+            onhandleOnSubmit={handleOnSubmit}
+            drinkNameValue={drinkName}
+            drinkCategoryValue={drinkCategory}
+            drinkUrlValue={drinkUrl}
+            drinkInstructionsValue={drinkInstructions}
+            drinkIngredient1Value={drinkIngredient1}
+            drinkIngredient2Value={drinkIngredient2}
+            drinkIngredient3Value={drinkIngredient3}
+            drinkMeasure1Value={drinkMeasure1}
+            drinkMeasure2Value={drinkMeasure2}
+            drinkMeasure3Value={drinkMeasure3}
+          />
+        </div>
       </div>
     </div>
   )

@@ -14,7 +14,7 @@ function App() {
   const [displayIngredients, setDisplayIngredients] = useState([]);
 
   return (
-    <>
+    <main>
       <IngredientsContext.Provider
         value={{
           ingredients,
@@ -32,7 +32,7 @@ function App() {
         </Routes>
         <Footer />
       </IngredientsContext.Provider>
-    </>
+    </main>
   );
 }
 
