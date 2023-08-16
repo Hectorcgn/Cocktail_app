@@ -8,13 +8,15 @@ function MyDrinks() {
   
   return (
     <ul className="drinklist">
+      
       <AutoGrid>
-        {myDrinks.map(myDrink => <DrinkItem
+        {myDrinks.map(myDrink =>(
+        <DrinkItem
           key={myDrink.idDrink}
           id={myDrink.idDrink}
           name={myDrink.strDrink}
           img={myDrink.strDrinkThumb}
-          />)}
+          />))}
       </AutoGrid>
     </ul>
   )

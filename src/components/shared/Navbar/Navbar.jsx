@@ -15,7 +15,7 @@ function Navbar() {
       </Link>
       <div className=''>
       <p onClick={option} >MENU</p>
-      <ul className={openfuntion ? 'open' : ''}>
+      <ul className={`list ${openfuntion ? 'open' : ''}`}>
         <Link to={'/adddrink'}>
         <li>
           Add Drink

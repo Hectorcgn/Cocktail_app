@@ -23,13 +23,13 @@ nav{
   
 }
 
-ul {
+.list {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.5s ease-out;
 }
 
-ul.open {
+.list.open {
   max-height: 200px; /* oder eine andere maximale Höhe */
   transition: max-height 0.5s ease-in;
   li{
