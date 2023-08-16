@@ -3,8 +3,8 @@ import "./App.scss";
 import Footer from "./components/shared/Footer/Footer";
 import Home from "./components/pages/Home";
 import Header from "./components/shared/Header/Header";
-import DrinkList from "./components/pages/DrinkList";
-import DrinkDetail from "./components/shared/DrinkDetail/DrinkDetail";
+import DrinkList from "./components/pages/DrinkList/DrinkList";
+import DrinkDetail from "./components/pages/DrinkDetail/DrinkDetail";
 
 function App() {
   return (

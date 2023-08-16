@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./DrinkList.scss";
-import DrinkItem from "../shared/DrinkItem/DrinkItem";
-import { AutoGrid } from "../shared/AutoGrid/AutoGrid";
+import DrinkItem from "../../shared/DrinkItem/DrinkItem";
+import { AutoGrid } from "../../shared/AutoGrid/AutoGrid";
 import { useParams } from "react-router-dom";
 
 function DrinkList() {
@@ -12,7 +12,7 @@ function DrinkList() {
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingName}`)
       .then((response) => {
         if (!response.ok) {
-          throw new Error("Failed to fetchPokemons");
+          throw new Error("Failed to fetch the datas");
         }
         return response.json();
       })
