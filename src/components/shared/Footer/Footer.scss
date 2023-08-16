@@ -1,7 +1,4 @@
-@font-face {
-    font-family: footerheadline;
-    src: url('../../../assets/fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf');
-}
+
 @font-face {
     font-family: footerparagraf;
     src: url('../../../assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf');
@@ -12,7 +9,7 @@
     color: #fff;
     padding: 100px 30px ;
     h2{
-        font-family: footerheadline,serif;
+        font-family: 'Playfair Display',serif;
         font-size: 28px;
         padding-bottom: 45px;
     }

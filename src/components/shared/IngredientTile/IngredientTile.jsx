@@ -20,9 +20,9 @@ export const IngredientTile = ({ name, linkName, onClickP }) => {
       className={style.link}
       to={`/drinklist/${linkName}`}
     >
-      <article
-        style={{ backgroundColor: randomColor }}
-        className={style.container}
+      <article className={style.button19}
+        // style={{ backgroundColor: randomColor }}
+        // className={style.container}
       >
         <h1>{name}</h1>
       </article>

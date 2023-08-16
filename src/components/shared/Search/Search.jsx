@@ -10,7 +10,7 @@ function Search({ onChangeP, valueP, onClickP }) {
         type="text"
         placeholder="type something"
       />
-      <button onClick={onClickP}>Search</button>
+    
     </div>
   );
 }
