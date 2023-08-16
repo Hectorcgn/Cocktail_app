@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { AutoGrid } from "../../shared/AutoGrid/AutoGrid.jsx";
 import { IngredientTile } from "../../shared/IngredientTile/IngredientTile.jsx";
-import { IngredientsContext } from "../../../contexts/IngredientsContext.jsx";
 import { getIngredientsList } from "../../../functions/fetch/ingredientsFetch.jsx";
+import { IngredientsContext } from "../../../contexts/FetchDataContext.jsx";
 
 function IngredientsList() {
   const [fetchOutcome, setFetchOutcome] = useState(false);
@@ -15,15 +15,20 @@ function IngredientsList() {
 
   return (
     <>
-      <AutoGrid>
-        {displayIngredients.map((ingredient) => (
-          <IngredientTile
-            key={ingredient}
-            linkName={ingredient.replaceAll(" ", "+").toLowerCase()}
-            name={ingredient}
-          />
-        ))}
-      </AutoGrid>
+      {fetchOutcome ? (
+        <AutoGrid>
+          {displayIngredients.map((ingredient) => (
+            <IngredientTile
+              // onClickP={() => setSwitchToDrinks(true)}
+              key={ingredient}
+              linkName={ingredient.replaceAll(" ", "+").toLowerCase()}
+              name={ingredient}
+            />
+          ))}
+        </AutoGrid>
+      ) : (
+        <p>loading...</p>
+      )}
     </>
   );
 }

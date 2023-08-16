@@ -1,7 +1,7 @@
 import style from "./IngredientTile.module.scss";
 import { Link } from "react-router-dom";
 
-export const IngredientTile = ({ name, linkName }) => {
+export const IngredientTile = ({ name, linkName, onClickP }) => {
   function getRandomColor() {
     const letters = "0123456789ABCDEF";
     let color = "#";
@@ -15,7 +15,11 @@ export const IngredientTile = ({ name, linkName }) => {
 
   const randomColor = getRandomColor();
   return (
-    <Link className={style.link} to={`/drinklist/${linkName}`}>
+    <Link
+      onClick={onClickP}
+      className={style.link}
+      to={`/drinklist/${linkName}`}
+    >
       <article
         style={{ backgroundColor: randomColor }}
         className={style.container}
