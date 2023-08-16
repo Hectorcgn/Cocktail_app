@@ -8,7 +8,8 @@ import DrinkDetail from "./components/pages/DrinkDetail/DrinkDetail";
 import { useState } from "react";
 import { IngredientsContext } from "./contexts/IngredientsContext.jsx";
 import AddDrink from "./components/pages/AddDrink/AddDrink";
-import MyDrink from "./components/pages/MyDrink/MyDrink";
+import MyDrinks from "./components/pages/myDrink/MyDrinks";
+
 
 function App() {
   const [ingredients, setIngredients] = useState([]);
@@ -30,7 +31,7 @@ function App() {
           <Route path="/drinklist/:name" element={<DrinkList />} />
           <Route path="/drinklist/details/:id" element={<DrinkDetail />} />
           <Route path="/adddrink" element={<AddDrink />} />
-          <Route path="/mydrink" element={<MyDrink/>} />
+          <Route path="/mydrink" element={<MyDrinks/>} />
         </Routes>
         <Footer />
       </IngredientsContext.Provider>

@@ -4,6 +4,7 @@ import AddDrinkForm from '../../shared/AddDrinkForm/AddDrinkForm'
 import imageRight from '../../../assets/image/image 10.png'
 import imageTop from '../../../assets/image/image 9.png'
 import imageBottom from '../../../assets/image/image 11.png'
+import { v4 as uuidv4 } from 'uuid';
 
 function AddDrink() {
 
@@ -89,7 +90,8 @@ function AddDrink() {
       "strIngredient3": drinkIngredient3,
       "strMeasure1": drinkMeasure1,
       "strMeasure2": drinkMeasure2,
-      "strMeasure3": drinkMeasure3
+      "strMeasure3": drinkMeasure3,
+      'idDrink': uuidv4()
     })
   }, [drinkName, drinkCategory, drinkUrl, drinkInstructions, drinkIngredient1, drinkIngredient2, drinkIngredient3, drinkMeasure1, drinkMeasure2, drinkMeasure3])
 

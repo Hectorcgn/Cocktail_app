@@ -1,17 +1,17 @@
-import React, { useState } from 'react'
+import React from 'react'
 import DrinkItem from '../../shared/DrinkItem/DrinkItem'
-import { v4 as uuidv4 } from 'uuid';
 import { AutoGrid } from '../../shared/AutoGrid/AutoGrid';
 
 function MyDrinks() {
-  const myDrinks = localStorage.getItem('myDrink').map(item => item.id = uuidv4())
+  const myDrinks = JSON.parse(localStorage.getItem('myDrink'))
+  console.log(myDrinks)
   
   return (
     <ul className="drinklist">
       <AutoGrid>
-        {myDrinks.map(myDrink => <DrinkItem 
-          key={myDrink.id}
-          id={myDrink.id}
+        {myDrinks.map(myDrink => <DrinkItem
+          key={myDrink.idDrink}
+          id={myDrink.idDrink}
           name={myDrink.strDrink}
           img={myDrink.strDrinkThumb}
           />)}
