@@ -4,29 +4,54 @@ import Search from "../Search/Search";
 import "./Header.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAnglesDown } from "@fortawesome/free-solid-svg-icons";
-import { IngredientsContext } from "../../../contexts/IngredientsContext.jsx";
+
 import { useLocation } from "react-router-dom";
+import {
+  DrinkContext,
+  IngredientsContext,
+} from "../../../contexts/FetchDataContext.jsx";
 
 function Header() {
-  const { ingredients, setDisplayIngredients, displayIngredients } =
-    useContext(IngredientsContext);
-
+  const { ingredients, setDisplayIngredients } = useContext(IngredientsContext);
+  const { drinkList, setDisplayDrinkList } = useContext(DrinkContext);
   const [inputSearch, setInputSearch] = useState("");
-  const [locationChanged, setLocationChanged] = useState(false);
+  const [switchToDrinks, setSwitchToDrink] = useState(false);
+
+  const currentLocation = useLocation().pathname;
 
   useEffect(() => {
-    if (inputSearch === "") {
-      setDisplayIngredients([]);
+    console.log(switchToDrinks);
+    setInputSearch("");
+    if (currentLocation === "/") {
+      setSwitchToDrink((prevState) => false);
     } else {
-      setDisplayIngredients(
-        ingredients.filter((ingredient) =>
-          ingredient.toLowerCase().includes(inputSearch.toLowerCase().trim()),
-        ),
-      );
+      setSwitchToDrink((prevState) => true);
     }
-  }, [inputSearch]);
+  }, [drinkList, ingredients]);
 
-  // const location2 = useLocation();
+  useEffect(() => {
+    if (!switchToDrinks) {
+      if (inputSearch === "") {
+        setDisplayIngredients([]);
+      } else {
+        const getDisplayIngredients = ingredients.filter((ingredient) =>
+          ingredient.toLowerCase().includes(inputSearch.toLowerCase().trim()),
+        );
+        setDisplayIngredients(getDisplayIngredients);
+      }
+    } else if (switchToDrinks) {
+      if (inputSearch === "") {
+        setDisplayDrinkList(drinkList);
+      } else {
+        const getDisplayDrinks = drinkList.filter((drink) =>
+          drink.strDrink
+            .toLowerCase()
+            .includes(inputSearch.toLowerCase().trim()),
+        );
+        setDisplayDrinkList(getDisplayDrinks);
+      }
+    }
+  }, [inputSearch, drinkList, setDisplayDrinkList]);
 
   const location = useLocation().pathname;
 

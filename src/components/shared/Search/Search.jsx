@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import "./Search.scss";
-import { IngredientsContext } from "../../../contexts/IngredientsContext.jsx";
 
 function Search({ onChangeP, valueP, onClickP }) {
   return (

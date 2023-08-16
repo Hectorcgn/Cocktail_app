@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./DrinkList.scss";
 import DrinkItem from "../../shared/DrinkItem/DrinkItem";
 import { AutoGrid } from "../../shared/AutoGrid/AutoGrid";
 import { useParams } from "react-router-dom";
+import { DrinkContext } from "../../../contexts/FetchDataContext.jsx";
 
 function DrinkList() {
   const ingName = useParams().name;
-  const [drinklist, setDrinkList] = useState([]);
+
+  const { setDrinkList, displayDrinkList } = useContext(DrinkContext);
+
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingName}`)
@@ -31,12 +34,12 @@ function DrinkList() {
   return (
     <ul className="drinklist">
       <AutoGrid>
-        {drinklist.map((drinkItem) => (
+        {displayDrinkList.map((drink) => (
           <DrinkItem
-            key={drinkItem.idDrink}
-            id={drinkItem.idDrink}
-            name={drinkItem.strDrink}
-            img={drinkItem.strDrinkThumb}
+            key={drink.idDrink}
+            id={drink.idDrink}
+            name={drink.strDrink}
+            img={drink.strDrinkThumb}
           />
         ))}
       </AutoGrid>
