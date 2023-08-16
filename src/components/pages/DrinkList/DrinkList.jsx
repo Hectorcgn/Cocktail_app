@@ -20,7 +20,6 @@ function DrinkList() {
         setDrinkList(drinksdata.drinks);
         setIsLoading(false);
       });
-    console.log(drinklist);
   }, []);
   if (isLoading) {
     return (

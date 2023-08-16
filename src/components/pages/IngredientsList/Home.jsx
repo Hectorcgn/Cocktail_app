@@ -1,22 +1,24 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AutoGrid } from "../../shared/AutoGrid/AutoGrid.jsx";
-import { ContentTile } from "../../shared/ContentTile/ContentTile.jsx";
+import { IngredientTile } from "../../shared/IngredientTile/IngredientTile.jsx";
 import { getIngredientsList } from "../../../functions/fetch/ingredientsFetch.jsx";
+import { IngredientsContext } from "../../../contexts/IngredientsContext.jsx";
 
 function Home() {
-  const [ingredientsList, setIngredientsList] = useState([]);
   const [fetchOutcome, setFetchOutcome] = useState(false);
+
+  const { setIngredientsList, displayIngredients } =
+    useContext(IngredientsContext);
 
   useEffect(() => {
     getIngredientsList(setIngredientsList, setFetchOutcome);
   }, []);
 
-  console.log(ingredientsList);
   return (
     <>
       <AutoGrid>
-        {ingredientsList.map((ingredient) => (
-          <ContentTile
+        {displayIngredients.map((ingredient) => (
+          <IngredientTile
             key={ingredient}
             linkName={ingredient.replaceAll(" ", "+").toLowerCase()}
             name={ingredient}
