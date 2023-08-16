@@ -3,7 +3,6 @@ import "./DrinkItem.scss";
 import { Link } from "react-router-dom";
 
 function DrinkItem(props) {
-  console.log(props.id);
   return (
     <Link to={`/drinklist/details/${Number(props.id)}`}>
       <li>
