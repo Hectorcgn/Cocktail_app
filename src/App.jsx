@@ -7,7 +7,7 @@ import DrinkList from "./components/pages/DrinkList/DrinkList";
 import DrinkDetail from "./components/pages/DrinkDetail/DrinkDetail";
 import { useState } from "react";
 import { IngredientsContext } from "./contexts/IngredientsContext.jsx";
-import AddDrink from "./components/pages/AddDrink/AddDrink";
+import AddDrinks from "./components/pages/AddDrink/AddDrinks";
 import MyDrink from "./components/pages/MyDrink/MyDrink";
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
           <Route path="/" element={<IngredientsList />} />
           <Route path="/drinklist/:name" element={<DrinkList />} />
           <Route path="/drinklist/details/:id" element={<DrinkDetail />} />
-          <Route path="/adddrink" element={<AddDrink />} />
+          <Route path="/adddrink" element={<AddDrinks />} />
           <Route path="/mydrink" element={<MyDrink/>} />
         </Routes>
         <Footer />
