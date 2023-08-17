@@ -8,7 +8,8 @@ function Search({ onChangeP, valueP, onClickP }) {
   return (
     <div className="header-search">
       {location.pathname !== '/mydrink' && (
-      <input
+      <div>
+        <input
         onChange={onChangeP}
         value={valueP}
         type="text"
@@ -17,6 +18,7 @@ function Search({ onChangeP, valueP, onClickP }) {
       <Link to={"drinklist/details/random"}>
         <button>Random Drink</button>
       </Link>
+      </div>
 
       )}
     </div>
