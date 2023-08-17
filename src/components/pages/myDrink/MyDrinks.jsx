@@ -8,6 +8,7 @@ function MyDrinks() {
 
   if (!myDrinks) {
     localStorage.setItem('myDrink', '[]')
+    myDrinks = []
   }
 
   const [displayMyDrink, setDisplayMyDrink] = useState(myDrinks);
