@@ -12,6 +12,9 @@ function Navbar() {
       <div>
         <p>MENU</p>
         <ul className='list'>
+        <Link to={'/'}>
+            <li>Home</li>
+          </Link>
           <Link to={'/adddrink'}>
             <li>Add Drink</li>
           </Link>

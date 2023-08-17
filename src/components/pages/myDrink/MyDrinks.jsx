@@ -5,7 +5,7 @@ import './MyDrink.scss'
 
 function MyDrinks() {
   const myDrinks = JSON.parse(localStorage.getItem('myDrink'));
-  const [displayMyDrink, setDisplayMyDrink] = useState(myDrinks)
+  const [displayMyDrink, setDisplayMyDrink] = useState(myDrinks);
 
   const handleDeleteDrink = (event) => {
     const newMyDrinksList = myDrinks.filter(item => item.idDrink !== event.target.id)
@@ -13,11 +13,10 @@ function MyDrinks() {
     setDisplayMyDrink(newMyDrinksList)
   }
   
-  
   return (
     <ul className="drinklist">
       <AutoGrid>
-        {displayMyDrink.map(myDrink =>(
+        {displayMyDrink.length === 0 ? <div className='default-massege'>your Drinks List is empty</div> :displayMyDrink.map(myDrink =>(
           <div className='mydrink-item' key={myDrink.idDrink}>
             <DrinkItem
               id={myDrink.idDrink}
