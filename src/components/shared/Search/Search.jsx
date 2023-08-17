@@ -11,15 +11,18 @@ function Search({ onChangeP, valueP, onClickP }) {
     <div className="header-search">
 
       {!hideSearch && (
+        <div>
+
         <input
           onChange={onChangeP}
           value={valueP}
           type="text"
           placeholder="type something"
-        />
+          />
       <Link to={"drinklist/details/random"}>
         <button>Random Drink</button>
       </Link>
+          </div>
       )}
     </div>
   );
