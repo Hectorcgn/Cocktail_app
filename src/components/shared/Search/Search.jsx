@@ -4,18 +4,19 @@ import { useLocation } from "react-router-dom";
 
 
 function Search({ onChangeP, valueP, onClickP }) {
-  const lodation = useLocation();
+  const location = useLocation();
+  const hideSearch = location.pathname === '/mydrink' || location.pathname.startsWith('/drinklist/details/');
+
   return (
     <div className="header-search">
-      {location.pathname !== '/mydrink' && (
-      <input
-        onChange={onChangeP}
-        value={valueP}
-        type="text"
-        placeholder="type something"
-      />
+      {!hideSearch && (
+        <input
+          onChange={onChangeP}
+          value={valueP}
+          type="text"
+          placeholder="type something"
+        />
       )}
-    
     </div>
   );
 }
