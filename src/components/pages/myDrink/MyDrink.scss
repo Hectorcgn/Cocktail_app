@@ -1,0 +1,15 @@
+.mydrink-item{
+  position: relative;
+}
+
+.delete-drink{
+  background-color: tomato;
+  border: none;
+  width: 20px;
+  line-height: 20px;
+  text-align: center;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 150px;
+}
