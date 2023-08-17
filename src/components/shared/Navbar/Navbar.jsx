@@ -1,12 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './Navbar.scss'
 import { Link } from 'react-router-dom'
 
 function Navbar() {
-  const [openfuntion, setOpenfuntion] = useState(false);
-  const option = () => {
-    setOpenfuntion(prev => prev = !prev)
-  }
 
   return (
     <nav>
@@ -14,8 +10,8 @@ function Navbar() {
         <h2>DRINKS&CHILL</h2>
       </Link>
       <div>
-        <p onClick={option}>MENU</p>
-        <ul className={`list ${openfuntion ? 'open' : ''}`}>
+        <p>MENU</p>
+        <ul className='list'>
           <Link to={'/adddrink'}>
             <li>Add Drink</li>
           </Link>
