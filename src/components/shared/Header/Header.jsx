@@ -18,9 +18,9 @@ function Header() {
   const [switchToDrinks, setSwitchToDrink] = useState(false);
 
   const currentLocation = useLocation().pathname;
+  const location = useLocation().pathname;
 
   useEffect(() => {
-    console.log(switchToDrinks);
     setInputSearch("");
     if (currentLocation === "/") {
       setSwitchToDrink((prevState) => false);
@@ -31,7 +31,7 @@ function Header() {
 
   useEffect(() => {
     if (!switchToDrinks) {
-      if (inputSearch === "") {
+      if (inputSearch.trim() === "") {
         setDisplayIngredients([]);
       } else {
         const getDisplayIngredients = ingredients.filter((ingredient) =>
@@ -40,7 +40,7 @@ function Header() {
         setDisplayIngredients(getDisplayIngredients);
       }
     } else if (switchToDrinks) {
-      if (inputSearch === "") {
+      if (inputSearch.trim() === "") {
         setDisplayDrinkList(drinkList);
       } else {
         const getDisplayDrinks = drinkList.filter((drink) =>
@@ -52,8 +52,6 @@ function Header() {
       }
     }
   }, [inputSearch, drinkList, setDisplayDrinkList]);
-
-  const location = useLocation().pathname;
 
   return (
     <header>
