@@ -8,21 +8,21 @@ import { DrinkContext } from "../../../contexts/FetchDataContext.jsx";
 function DrinkList() {
   const [isLoading, setIsLoading] = useState(true);
   const ingName = useParams().name;
-  const { setDrinkList, displayDrinkList } = useContext(DrinkContext);
+  const { setDrinkList, displayDrinkList, drinkList } =
+    useContext(DrinkContext);
+  const [myDrink, setMyDrink] = useState([]);
 
   useEffect(() => {
-    // fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingName}`)
-    //   .then((response) => {
-    //     if (!response.ok) {
-    //       throw new Error("Failed to fetch the datas");
-    //     }
-    //     return response.json();
-    //   })
-    //   .then((drinksdata) => {
-    //     setDrinkList(drinksdata.drinks);
-    //     setIsLoading(false);
-    //   });
+    const savedMyDrink = localStorage.getItem("myDrink");
+    if (savedMyDrink) {
+      const parsedMyDrink = JSON.parse(savedMyDrink);
+      setMyDrink(parsedMyDrink);
+    }
+  }, [setDrinkList]);
 
+  // console.log(myDrink);
+  console.log(drinkList);
+  useEffect(() => {
     const getDrinkList = async () => {
       try {
         const res = await fetch(
@@ -34,7 +34,8 @@ function DrinkList() {
           );
         }
         const drinkData = await res.json();
-        setDrinkList(drinkData.drinks);
+        setDrinkList([...drinkData.drinks, ...myDrink]);
+        // setDrinkList((prevList) => [...prevList, myDrink]);
         setIsLoading(false);
       } catch (error) {
         console.error("Error fetching DrinkList:", error);
