@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function DrinkItem(props) {
   return (
-    <Link to={`/drinklist/details/${Number(props.id)}`}>
+    <Link to={`/drinklist/details/${props.id}`}>
       <li>
         <h3>{props.name}</h3>
         <img src={props.img} alt="coctail.img" />

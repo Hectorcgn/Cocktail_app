@@ -5,12 +5,19 @@ import { useParams } from 'react-router-dom'
 
 function DrinkDetail() {
 
-  const [drink, setDrink] = useState({})
- const drinkId = useParams().id 
+  const drinkId = useParams().id;
+  const myDrinks = JSON.parse(localStorage.getItem('myDrink'));
+  const myDrink = myDrinks.find(item => item.idDrink === drinkId);
+  const [drink, setDrink] = useState({});
+  
   useEffect(() => {
-    fetch(`${detailDrinkApi}${drinkId}`)
-      .then(res => res.json())
-      .then(data => setDrink(data.drinks[0]))
+    if (Number(drinkId)) {
+      fetch(`${detailDrinkApi}${drinkId}`)
+        .then(res => res.json())
+        .then(data => setDrink(data.drinks[0]))
+    }else{
+      setDrink(myDrink);
+    }
   },[])
 
   return (
