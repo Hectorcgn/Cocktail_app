@@ -2,7 +2,7 @@ nav{
   padding: 21px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: self-start;
   height: 52px;
 
   h2{
@@ -14,13 +14,16 @@ nav{
   p{
     font-family: 'Montserrat', sans-serif;
     font-size: 13px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    &:hover{
+      text-decoration: underline;
+    }
   }
   a{
     color: #fff;
     text-decoration: none;
-  
   }
-  
 }
 
 .list {
@@ -34,7 +37,6 @@ nav{
 .list.open {
   max-height: 200px; /* oder eine andere maximale Höhe */
   transition: max-height 0.5s ease-in;
-
   li{
     padding-top: 10px;
     width: 73px;
