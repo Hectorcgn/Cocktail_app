@@ -1,10 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import DrinkItem from '../../shared/DrinkItem/DrinkItem'
 import { AutoGrid } from '../../shared/AutoGrid/AutoGrid';
 import './MyDrink.scss'
 
 function MyDrinks() {
-  const myDrinks = JSON.parse(localStorage.getItem('myDrink'));
+  let myDrinks = JSON.parse(localStorage.getItem('myDrink'));
+
+  if (!myDrinks) {
+    localStorage.setItem('myDrink', '[]')
+  }
+
   const [displayMyDrink, setDisplayMyDrink] = useState(myDrinks);
 
   const handleDeleteDrink = (event) => {
