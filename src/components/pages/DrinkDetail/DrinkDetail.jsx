@@ -44,7 +44,13 @@ function DrinkDetail() {
         <img src={drink.strDrinkThumb} alt={drink.strDrink} />
         <div>
           <h2>Zutaten</h2>
-          <p>{drink.strInstructions}</p>
+          <p>{drink.strMeasure1}{drink.strIngredient1}</p>
+          <p>{drink.strMeasure2}{drink.strIngredient2}</p>
+          <p>{drink.strMeasure3}{drink.strIngredient3}</p>
+          <p>{drink.strMeasure4}{drink.strIngredient4}</p>
+          <p>{drink.strMeasure5}{drink.strIngredient5}</p>
+          <p>{drink.strMeasure6}{drink.strIngredient6}</p>
+          <p>{drink.strInstructionsDE}</p>
         </div>
       </div>
     </div>
