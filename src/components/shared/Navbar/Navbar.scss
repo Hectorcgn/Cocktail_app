@@ -32,13 +32,14 @@ nav{
   transition: max-height 0.5s ease-out;
   position: absolute;
   right: 21px;
+  position: absolute;
+  right: 21px;
 }
 
 .list.open {
   max-height: 200px; /* oder eine andere maximale Höhe */
-  transition: max-height 0.5s ease-in;
-  position: absolute;
-  right: 21px;
+  transition: max-height 1s linear;
+  
   li{
     padding-top: 10px;
     width: 73px;
