@@ -44,7 +44,7 @@ function App() {
           }}
         >
           <Header />
-           <Routes>
+          <Routes>
             <Route path="/" element={<IngredientsList />} />
             <Route path="/drinklist/:name" element={<DrinkList />} />
             <Route path="/drinklist/details/:id" element={<DrinkDetail />} />
