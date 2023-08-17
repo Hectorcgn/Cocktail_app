@@ -13,8 +13,14 @@ function DrinkDetail() {
           useParams().id
         }`;
 
+  const drinkId = useParams().id;
+  const myDrinks = JSON.parse(localStorage.getItem('myDrink'));
+  const myDrink = myDrinks.find(item => item.idDrink === drinkId);
+  const [drink, setDrink] = useState({});
+  
   useEffect(() => {
-    const fetchDetailsDrink = async () => {
+    if (Number(drinkId)) {
+      const fetchDetailsDrink = async () => {
       try {
         const res = await fetch(drinkId);
         if (!res.ok) {
@@ -29,14 +35,11 @@ function DrinkDetail() {
       }
     };
     fetchDetailsDrink();
-  }, []);
+    }else{
+      setDrink(myDrink);
+    }
+  },[])
 
-  // console.log(drinkId);
-  // useEffect(() => {
-  //   fetch()
-  //     .then((res) => res.json())
-  //     .then((data) => setDrink(data.drinks[0]));
-  // }, []);
 
   return (
     <div className="detail-drink">

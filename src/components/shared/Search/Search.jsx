@@ -1,10 +1,13 @@
 import React, { useContext } from "react";
 import "./Search.scss";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 function Search({ onChangeP, valueP, onClickP }) {
+  const lodation = useLocation();
   return (
     <div className="header-search">
+      {location.pathname !== '/mydrink' && (
       <input
         onChange={onChangeP}
         value={valueP}
@@ -14,6 +17,8 @@ function Search({ onChangeP, valueP, onClickP }) {
       <Link to={"drinklist/details/random"}>
         <button>Random Drink</button>
       </Link>
+
+      )}
     </div>
   );
 }
