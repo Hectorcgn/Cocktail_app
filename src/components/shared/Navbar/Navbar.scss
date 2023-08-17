@@ -24,24 +24,33 @@ nav{
     color: #fff;
     text-decoration: none;
   }
+
+  div{
+    &:hover .list{
+      height: 80px;
+    }
+  }
 }
 
 .list {
-  max-height: 2px;
+  background-color: rgba(255, 255, 255, 0.178);
+  height: 0;
   overflow: hidden;
-  transition: max-height 0.5s ease-out;
-  position: absolute;
-  right: 21px;
-  position: absolute;
-  right: 21px;
-}
-
-.list.open {
-  max-height: 200px; /* oder eine andere maximale Höhe */
-  transition: max-height 1s linear;
+  transition: all 0.5s ease-in-out;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   
+
   li{
-    padding-top: 10px;
-    width: 73px;
+    padding: 10px;
+    font-size: 14px;
+
+    &:hover{
+      text-decoration: underline;
+    }
   }
 }
+
