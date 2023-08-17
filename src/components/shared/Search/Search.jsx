@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import "./Search.scss";
+import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-
 
 function Search({ onChangeP, valueP, onClickP }) {
   const lodation = useLocation();
@@ -14,8 +14,11 @@ function Search({ onChangeP, valueP, onClickP }) {
         type="text"
         placeholder="type something"
       />
+      <Link to={"drinklist/details/random"}>
+        <button>Random Drink</button>
+      </Link>
+
       )}
-    
     </div>
   );
 }

@@ -15,9 +15,6 @@ import {
 
 import MyDrinks from "./components/pages/myDrink/MyDrinks";
 
-
-
-
 function App() {
   const [ingredients, setIngredients] = useState([]);
   const [displayIngredients, setDisplayIngredients] = useState([]);
@@ -25,10 +22,9 @@ function App() {
   const [displayDrinkList, setDisplayDrinkList] = useState([]);
 
   return (
-
     <main>
       <DrinkContext.Provider
-            value={{
+        value={{
           drinkList,
           setDrinkList,
           displayDrinkList,
@@ -49,7 +45,7 @@ function App() {
             <Route path="/drinklist/:name" element={<DrinkList />} />
             <Route path="/drinklist/details/:id" element={<DrinkDetail />} />
             <Route path="/adddrink" element={<AddDrink />} />
-            <Route path="/mydrink" element={<MyDrinks/>} />
+            <Route path="/mydrink" element={<MyDrinks />} />
           </Routes>
           <Footer />
         </IngredientsContext.Provider>
