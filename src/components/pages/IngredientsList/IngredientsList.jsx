@@ -41,7 +41,7 @@ function IngredientsList() {
         </AutoGrid>
       ) : (
         <AutoGrid>
-          <IngredientTile name={"All"} />
+          <IngredientTile name={"All"} linkName={"alldrinks"} />
           <IngredientTile name={"Random Ingredient"} linkName={opt1.link} />
           <IngredientTile name={opt2.name} linkName={opt2.link} />
           <IngredientTile name={opt3.name} linkName={opt3.link} />
