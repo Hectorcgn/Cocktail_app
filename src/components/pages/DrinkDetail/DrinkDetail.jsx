@@ -5,41 +5,37 @@ import { useParams } from "react-router-dom";
 
 function DrinkDetail() {
   const [drink, setDrink] = useState({});
-
-  let drinkId =
-    useParams().id === "random"
-      ? "https://www.thecocktaildb.com/api/json/v1/1/random.php"
-      : `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${
-          useParams().id
-        }`;
-
   const drinkId = useParams().id;
   const myDrinks = JSON.parse(localStorage.getItem('myDrink'));
   const myDrink = myDrinks.find(item => item.idDrink === drinkId);
-  const [drink, setDrink] = useState({});
-  
+
   useEffect(() => {
-    if (Number(drinkId)) {
-      const fetchDetailsDrink = async () => {
-      try {
-        const res = await fetch(drinkId);
-        if (!res.ok) {
-          throw new Error(
-            `Fetch Status of getIngredientsList ist !ok: ${res.status}`,
-          );
-        }
-        const detailData = await res.json();
-        setDrink(detailData.drinks[0]);
-      } catch (error) {
-        console.error("Error fetching IngredientsList:", error);
+    if (drinkId === "random") {
+      if (drinkId === "random") {
+        const fetchDetailsDrink = async () => {
+          try {
+            const res = await fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php");
+            if (!res.ok) {
+              throw new Error(
+                `Fetch Status of getIngredientsList ist !ok: ${res.status}`,
+              );
+            }
+            const detailData = await res.json();
+            setDrink(detailData.drinks[0]);
+          } catch (error) {
+            console.error("Error fetching IngredientsList:", error);
+          }
+        };
+        fetchDetailsDrink();
       }
-    };
-    fetchDetailsDrink();
+    }else if (Number(drinkId)) {
+      fetch(`${detailDrinkApi}${drinkId}`)
+        .then(res => res.json())
+        .then(data => setDrink(data.drinks[0]))
     }else{
       setDrink(myDrink);
     }
   },[])
-
 
   return (
     <div className="detail-drink">
